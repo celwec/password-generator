@@ -1,30 +1,31 @@
 /*
-** This function generates a password at random using uppercase, lowercase,
-** numbers, and special characters found on the US keyboard.
+** This function generates a password at random using numbers, uppercase,
+** lowercase, and special characters found on the US keyboard.
 */
 
 function pwd (
   length    = 16,
+  special   = false,
   uppercase = true,
   lowercase = true,
-  numbers   = true,
-  special   = false
+  numbers   = true
   ) {
 
   // Possible characters to be added to the character pool
-  var uc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  var sp = "!\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~",
+      uc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
       lc = "abcdefghijklmnopqrstuvwxyz",
-      no = "0123456789",
-      sp = "!\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~";
+      no = "0123456789";
+
 
   // Character pool
   var allowed = "";
 
   // Adding characters to character pool
+  if (special)   allowed += sp;
   if (uppercase) allowed += uc;
   if (lowercase) allowed += lc;
   if (numbers)   allowed += no;
-  if (special)   allowed += sp;
 
   // Password stored in this variable
   var password = "";
