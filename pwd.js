@@ -9,14 +9,20 @@ function pwd (
   uppercase = true,
   lowercase = true,
   numbers   = true
-  ) {
+) {
+
+  // API for HTML document integration
+  if (len = document.getElementById("pwd-lg")) length    = len.value;
+  if (spl = document.getElementById("pwd-sp")) special   = spl.checked;
+  if (upc = document.getElementById("pwd-uc")) uppercase = upc.checked;
+  if (lwc = document.getElementById("pwd-lc")) lowercase = lwc.checked;
+  if (num = document.getElementById("pwd-no")) numbers   = num.checked;
 
   // Possible characters to be added to the character pool
   var sp = "!\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~",
       uc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
       lc = "abcdefghijklmnopqrstuvwxyz",
       no = "0123456789";
-
 
   // Character pool
   var allowed = "";
